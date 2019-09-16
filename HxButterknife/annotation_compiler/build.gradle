@@ -1,0 +1,18 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //注册我们的注解处理器
+//    implementation 'com.google.auto.service:auto-service:1.0-rc3'
+    // As-3.4.1 + gradle5.1.1-all + auto-service:1.0-rc4
+    annotationProcessor'com.google.auto.service:auto-service:1.0-rc4'
+    compileOnly'com.google.auto.service:auto-service:1.0-rc4'
+    implementation project(path: ':annotations')
+
+    implementation 'com.squareup:javapoet:1.11.1'
+
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
